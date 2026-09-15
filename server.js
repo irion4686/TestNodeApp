@@ -8,6 +8,8 @@ const publicDirectory = path.join(__dirname, "public");
 const databasePath = path.join(__dirname, "app.db");
 const database = new DatabaseSync(databasePath);
 
+database.exec(fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8"));
+
 const selectRandomQuote = database.prepare(`
   SELECT id, author, text, source, tags
   FROM quotes
