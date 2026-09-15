@@ -1,0 +1,53 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  width: min(90%, 34rem);
+  padding: 3rem;
+  text-align: center;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2.5rem rgb(31 41 55 / 12%);
+}
+
+h1 {
+  min-height: 2.5em;
+  margin: 0 0 2rem;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+}
+
+button {
+  padding: 0.8rem 1.25rem;
+  border: 0;
+  border-radius: 0.6rem;
+  color: white;
+  background: #2563eb;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
