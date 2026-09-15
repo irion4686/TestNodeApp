@@ -1,23 +1,27 @@
-const messages = [
-  "Hello from Node.js!",
-  "The text has changed.",
-  "You can replace this text source later.",
-];
+async function getText() {
+  const response = await fetch("/api/quote", { cache: "no-store" });
+  const result = await response.json();
 
-let messageIndex = 0;
+  if (!response.ok) {
+    throw new Error(result.error || "Unable to load a quote.");
+  }
 
-// Change this function later to get text from an API, database, or other source.
-function getText() {
-  const text = messages[messageIndex];
-  messageIndex = (messageIndex + 1) % messages.length;
-  return text;
+  return `“${result.text}” — ${result.author}`;
 }
 
 const displayText = document.querySelector("#display-text");
 const changeTextButton = document.querySelector("#change-text-button");
 
-function updateDisplayedText() {
-  displayText.textContent = getText();
+async function updateDisplayedText() {
+  changeTextButton.disabled = true;
+
+  try {
+    displayText.textContent = await getText();
+  } catch (error) {
+    displayText.textContent = error.message;
+  } finally {
+    changeTextButton.disabled = false;
+  }
 }
 
 changeTextButton.addEventListener("click", updateDisplayedText);
