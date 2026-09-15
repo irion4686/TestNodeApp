@@ -16,7 +16,7 @@ body {
 }
 
 .card {
-  width: min(90%, 34rem);
+  width: min(90%, 52rem);
   padding: 3rem;
   text-align: center;
   background: white;
