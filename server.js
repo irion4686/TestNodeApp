@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { DatabaseSync } = require("node:sqlite");
 
-const port = process.env.PORT || 3000;
+const port = 80;
 const publicDirectory = path.join(__dirname, "public");
 const databasePath = path.join(__dirname, "app.db");
 const database = new DatabaseSync(databasePath);
